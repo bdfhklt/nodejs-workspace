@@ -1,0 +1,27 @@
+/*
+http://nodejs.org  <= 설치
+ 
+$ node -v  <= 설치 확인
+    10.12.2
+    
+$ cd C:\Users\User\Documents\nodejs-workspace
+
+$ npm install express-generator -g  <=  express 프로젝트를 생성하기 위한 프로그램 설치
+
+$ express -e exp1 <= exp1 프로젝트 생성 + 폴더 생성됨.
+
+$ cd exp1 <= 폴더 이동
+
+$ npm install <= 관련 라이브러리 설치
+
+$ npm start <= 서버구동됨.
+
+크롬에서 http://127.0.0.1:3000  <= 웹페이지 확인
+
+$ npm install nodemon -g
+
+$ npm start => ./bin/www에 있는 파일을 실행
+
+$ nodemon --inspect ./bin/www   <= 소스코드가 변경되면 서버가 자동으로 재시작
+*/
+
