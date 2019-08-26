@@ -25,3 +25,65 @@ $ npm start => ./bin/www에 있는 파일을 실행
 $ nodemon --inspect ./bin/www   <= 소스코드가 변경되면 서버가 자동으로 재시작
 */
 
+
+---
+
+
+//프로젝트 폴더 이동
+$ cd C:\Users\User\Documents\nodejs-workspace\exp1
+
+//프로젝트 실행
+$ nodemon --inspect ./bin/www
+
+//크롬에서 실행 확인 : http://127.0.0.1:3000/
+
+/*
+오라클 클라이언트 설치
+https://www.oracle.com/database/technologies/instant-client/downloads.html
+http://ihongss.com/zip/oracle_client.zip
+
+압축풀기 ->  C:\instantclient_19_3 폴더로 복사 -> 환경변수 PATH 추가
+
+라이브러리 설치 
+npm install oracledb --save
+*/
+
+
+/* mongodb
+cmd관리자모드
+$ cd C:\Program Files\MongoDB\Server\4.2\bin
+$ mongod
+
+//라이브러리 설치
+npm install mongodb --save
+*/
+
+
+---
+
+
+//프로젝트 폴더 이동
+$ cd C:\Users\User\Documents\nodejs-workspace\exp1
+
+//socket.io라이브러리 설치
+$ npm install socket.io --save
+
+//프로젝트 실행
+$ nodemon --inspect ./bin/www
+
+/////////////////broker 실습//////////////////////////////
+//라이브러리 설치
+npm install mosca --save
+
+
+---
+
+
+//프로젝트 폴더 이동
+$ cd C:\Users\User\Documents\nodejs-workspace\exp1
+
+//cors라이브러리 설치
+$ npm install cors --save
+
+//프로젝트 실행
+$ nodemon --inspect ./bin/www

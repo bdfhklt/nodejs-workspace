@@ -15,7 +15,7 @@
     "mongodb": "^3.3.0",
     "morgan": "~1.9.1",
     "mosca": "^2.8.3",
-    "oracledb": "^4.0.0",
+    "oracledb": "^4.0.1",
     "socket.io": "^2.2.0"
   }
 }
