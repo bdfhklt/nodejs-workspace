@@ -18,8 +18,51 @@ router.get('/0', function(req, res, next) {
     res.end();
 });
 
-//127.0.0.1:3000/1
-router.post('/1', function(req, res, next){
+//127.0.0.1:3000/post
+router.post('/post', function(req, res, next){
+	oracledb.getConnection({
+		user : "myword", // 데이터 베이스 접속 정보
+		password:"123456",
+		connectString : "211.110.165.201:1521/xe"
+	}, function(err, conn){
+		if(err){
+			console.log('DB오류' + err);
+		}
+		else{
+			var sql = req.body.sql; // 받아온 sql문
+			console.log(sql);
+			conn.execute(sql, function(err, result){ // 데이터베이스 상호작용
+				if(err){
+					conn.release();
+					conn.close();
+					console.log("SQL오류"+err);
+				}
+				else{
+					conn.release();
+					conn.close(() => {
+						console.log(result);
+						res.json(result); // 데이터 전송
+						res.end();
+					});
+				}
+			});
+		}
+	});
+});
+
+// DB연결해제
+function doRelease(connection, result) {
+	connection.close(function(err) {
+		if(err){
+			console.error(err.message)
+		}
+		
+		//response.send(result);
+	})
+}
+
+//127.0.0.1:3000/post
+router.post('/post2', function(req, res, next){ // 백업
 	oracledb.getConnection({
 		user : "myword", // 데이터 베이스 접속 정보
 		password:"123456",
@@ -30,6 +73,7 @@ router.post('/1', function(req, res, next){
 		}
 		else{
 			var sql = req.body.sql; // 받아온 sql문
+			console.log(sql);
 			conn.execute(sql, function(err, result){ // 데이터베이스 상호작용
 				if(err){
 					console.log("SQL오류"+err);
@@ -38,11 +82,11 @@ router.post('/1', function(req, res, next){
 					console.log(result);
 					res.json(result); // 데이터 전송
 					res.end();
+					conn.close();
 				}
 			});
 		}
 	});
-	
 });
 
 //127.0.0.1:3000/11
